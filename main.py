@@ -253,7 +253,7 @@ async def main(event) -> None:
     if event.message.message == "Help" or event.message.message == "help" or event.message.message == "/help" or event.message.message == "/Help":
         await client.send_message('hdidkwnqbqfzyskn2816', f"""**Commands supported by the Bot**\n\n**'/add'** - Adding token tracking in the OttoBASEDeployments and bananadeployerBASE channel\n\n**'/vd add'** - Adding token tracking in the virtuals_deploy channel\n\n**'/bds add'** - Adding token tracking in the bananadeployerSOL channel\n\n**'/dell'** - Remove token from tracker\n\n**'/show'** - Show all tokens that are in the track""")
 
-    if event.message.message == "Show" or event.message.message == "show" or event.message.message == "/show" or event.message.message == "/Show":
+    if event.message.message == "Show" or event.message.message == "show" or event.message.message == "/show" or event.message.message == "/Show" and len(trackingList) != 0:
         
         string = ""
 
@@ -269,6 +269,9 @@ async def main(event) -> None:
                 string += f"{trackingList[i]} - ‼️Forwarding from bananadeployerSOL‼️\n\n"
 
         await client.send_message('hdidkwnqbqfzyskn2816', f"""{string}""")
+    
+    else :
+        await client.send_message('hdidkwnqbqfzyskn2816', f"‼️There is nothing on the list‼️")
 
     if event.message.message == "/add" or event.message.message == "/Add":
         await client.send_message('hdidkwnqbqfzyskn2816', f"""📌The 'add' command is necessary to add token tracking from the OttoBASEDeployments and bananadeployerBASE channels\n\n➡️The command is written like this: <add $token_name>""")
